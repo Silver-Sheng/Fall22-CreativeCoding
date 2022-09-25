@@ -19,35 +19,35 @@ function draw() {
     strokeWeight(6);
     noFill();
     stroke(166, 178, 165);
-    let end1 = map(secPointer, 0, 60, 0, 360)
-    arc(0, 0, 370, 370, 0, end1);
+    let secAngle = map(secPointer, 0, 60, 0, 360)
+    arc(0, 0, 370, 370, 0, secAngle);
 
     strokeWeight(8);
     stroke(249, 218, 136);
-    let end2 = map(minPointer, 0, 60, 0, 360)
-    arc(0, 0, 350, 350, 0, end2);
+    let minAngle = map(minPointer, 0, 60, 0, 360)
+    arc(0, 0, 350, 350, 0, minAngle);
 
     strokeWeight(10);
     stroke(172, 26, 50);
-    let end3 = map(hrPointer % 12, 0, 24, 0, 360)
-    arc(0, 0, 325, 325, 0, end3);
+    let hrAngle = map(hrPointer % 12, 0, 24, 0, 360)
+    arc(0, 0, 325, 325, 0, hrAngle);
 
     push();
-    rotate(end1);
+    rotate(secAngle);
     stroke(166, 178, 165);
     strokeWeight(6);
     line(0, 0, 125, 0);
     pop();
 
     push();
-    rotate(end2);
+    rotate(minAngle);
     stroke(249, 218, 136);
     strokeWeight(8);
     line(0, 0, 100, 0);
     pop();
 
     push();
-    rotate(end3);
+    rotate(hrAngle);
     stroke(172, 26, 50);
     strokeWeight(10);
     line(0, 0, 70, 0);
