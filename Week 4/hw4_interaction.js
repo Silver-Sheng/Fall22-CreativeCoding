@@ -1,8 +1,8 @@
 function setup() {
     createCanvas(600, 600);
-    background(255);
+    background(0);
     textSize(30);
-    fill(0);
+    fill(255);
     textStyle(BOLD);
     textAlign(CENTER, CENTER);
     text("Tap to see the emoji :)",0, 200, width);
