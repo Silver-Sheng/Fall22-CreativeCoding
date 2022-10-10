@@ -3,7 +3,7 @@ let start = 0;
 let r = 150;
 let angle = 0;
 let numOfShape = 10;
-let move;
+let moving;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -13,7 +13,7 @@ function setup() {
     start += 100;
   }
 
-  move = TWO_PI / numOfShape;
+  moving = TWO_PI / numOfShape;
 
 }
 
@@ -80,7 +80,7 @@ function draw10Circles() {
         noStroke();
         fill(239, 235, 231, map(sin(frameCount/70), 0, 1, 0, 100));
         circle(a, b, 200 + map(sin(frameCount/70), 0, 1, 0, 100));
-        angle += move; 
+        angle += moving; 
     }
 
 }
