@@ -1,6 +1,11 @@
 function setup() {
     createCanvas(600, 600);
-    background(0);
+    background(255);
+    textSize(30);
+    fill(0);
+    textStyle(BOLD);
+    textAlign(CENTER, CENTER);
+    text("Tap to see the emoji :)",0, 200, width);
 }
 
 //make the face draw along with each click of mouse:
