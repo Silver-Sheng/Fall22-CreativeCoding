@@ -1,3 +1,10 @@
+/* 1. A new face can be generated when the mouse clicks
+2. The color of the face can change while clicking
+3. The facial features can sort and combine randomly
+4. The color of the eyes can change while clicking
+5. Create a different class for each facial feature 
+6. Create a new random backgroun with each click */
+
 function setup() {
     createCanvas(600, 600);
     background(0);
