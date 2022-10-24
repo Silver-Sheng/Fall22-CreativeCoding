@@ -9,7 +9,7 @@ let scribble;
 let angle = 0;
 
 function preload(){
-  music = loadSound('Lauv - Paris In The Rain.mp3');
+  music = loadSound('audio/Lauv - Paris In The Rain.mp3');
 }
 
 function setup() {
