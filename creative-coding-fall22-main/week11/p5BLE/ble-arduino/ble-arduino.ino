@@ -1,36 +1,23 @@
-/*
-  Button LED
-
-  This example creates a BLE peripheral with service that contains a
-  characteristic to control an LED and another characteristic that
-  represents the state of the button.
-
-  The circuit:
-  - Arduino MKR WiFi 1010 or Arduino Uno WiFi Rev2 board
-  - Button connected to pin 4
-
-  This example code is in the public domain.
-*/
-
 #include <ArduinoBLE.h>
 
-const int ledPin = LED_BUILTIN; // set ledPin to on-board LED
 const int buttonPin = 4; // set buttonPin to digital pin 4
+const int potPin = A0;
 
-BLEService ledService(""); // create service
+BLEService nanoService("76299b69-7871-4bc1-8937-68204d20d344"); // create service
 
-// create switch characteristic and allow remote device to read and write
-//BLEByteCharacteristic ledCharacteristic("19B10011-E8F2-537E-4F6C-D104768A1214", BLERead | BLEWrite);
 // create button characteristic and allow remote device to get notifications
-BLEIntCharacteristic buttonCharacteristic("19B10012-E8F2-537E-4F6C-D104768A1214", BLERead | BLENotify);
+BLEIntCharacteristic buttonCharacteristic("be7162e4-5f7c-41a1-8e3e-36792d99f32c", BLERead | BLENotify);
+BLEIntCharacteristic potCharacteristic("9b1235c3-7b38-40e9-8581-53e36082e260", BLERead | BLENotify);
 
 int sensorValue = 255;
+
 void setup() {
   Serial.begin(9600);
   while (!Serial);
 
-  pinMode(ledPin, OUTPUT); // use the LED as an output
+//  pinMode(ledPin, OUTPUT); // use the LED as an output
   pinMode(buttonPin, INPUT); // use button pin as an input
+  pinMode(potPin, INPUT);
 
   // begin initialization
   if (!BLE.begin()) {
@@ -40,19 +27,20 @@ void setup() {
   }
 
   // set the local name peripheral advertises
-  BLE.setLocalName("ButtonLED");
+  BLE.setLocalName("Arduino Nano");
   // set the UUID for the service this peripheral advertises:
-  BLE.setAdvertisedService(ledService);
+  BLE.setAdvertisedService(nanoService);
 
   // add the characteristics to the service
-  //ledService.addCharacteristic(ledCharacteristic);
-  ledService.addCharacteristic(buttonCharacteristic);
+  nanoService.addCharacteristic(buttonCharacteristic);
+  nanoService.addCharacteristic(potCharacteristic);
+
 
   // add the service
-  BLE.addService(ledService);
+  BLE.addService(nanoService);
 
-  //ledCharacteristic.writeValue(0);
   buttonCharacteristic.writeValue(0);
+  potCharacteristic.writeValue(0);
 
   // start advertising
   BLE.advertise();
@@ -64,10 +52,15 @@ void loop() {
   // poll for BLE events
   BLE.poll();
 
-  if (millis() % 1000 == 0) {
+  if (millis() % 100 == 0) {
     sensorValue = digitalRead(buttonPin);
     Serial.println(sensorValue);
     buttonCharacteristic.writeValue(sensorValue);
+
+    float potValue = analogRead(potPin);
+    Serial.println(potValue);
+    potCharacteristic.writeValue(potValue);
+
     delay(1);
   }
 
