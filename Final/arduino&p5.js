@@ -170,13 +170,13 @@ function onButtonClicked() {
 
 function shouldDisappear(index) {
   // show the music visualization 3 sec and disappear
-  let timeup = (frameCount - startTimes[index]) * deltaTime > 3000;
+  let timeup = (frameCount - startTimes[index]) * deltaTime > 9000;
   return timeup;
 }
 
 function disappearTimer(index) {
   // timer for disappear animation to finish
-  return (frameCount - timers[index]) * deltaTime > 2000;
+  return (frameCount - timers[index]) * deltaTime > 7500;
 }
 
 function haltTimer(index) {
