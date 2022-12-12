@@ -108,69 +108,6 @@ void loop()
     Serial.println("BUTTON_B");
     delay(900);
   }
-  
-  // while(digitalRead(BUTTON_C) == ACTIVATED)
-  // {
-  //   tone(PIEZO,NOTE_C);
-  //   digitalWrite(LED,HIGH);
-    
-  //   Serial.println("BUTTON_C");
-
-  // }
-
-  // while(digitalRead(BUTTON_D) == ACTIVATED)
-  // {
-  //   tone(PIEZO,NOTE_D);
-  //   digitalWrite(LED,HIGH);
-
-  //   Serial.println("BUTTON_D");
-
-  // }
-
-  // while(digitalRead(BUTTON_E) == ACTIVATED)
-  // {
-  //   tone(PIEZO,NOTE_E);
-  //   digitalWrite(LED,HIGH);
-    
-  //   Serial.println("BUTTON_E");
-
-  // }
-
-  // while(digitalRead(BUTTON_F) == ACTIVATED)
-  // {
-  //   tone(PIEZO,NOTE_F);
-  //   digitalWrite(LED,HIGH);
-
-  //   Serial.println("BUTTON_F");
-
-  // }
-
-  // while(digitalRead(BUTTON_G) == ACTIVATED)
-  // {
-  //   tone(PIEZO,NOTE_G);
-  //   digitalWrite(LED,HIGH);
-
-  //   Serial.println("BUTTON_G");
-
-  // }
-
-  // while(digitalRead(BUTTON_A) == ACTIVATED)
-  // {
-  //   tone(PIEZO,NOTE_A);
-  //   digitalWrite(LED,HIGH);
-
-  //   Serial.println("BUTTON_A");
-
-  // }
-
-  // while(digitalRead(BUTTON_B) == ACTIVATED)
-  // {
-  //   tone(PIEZO,NOTE_B);
-  //   digitalWrite(LED,HIGH);
-
-  //   Serial.println("BUTTON_B");
-
-  // }
 
   noTone(PIEZO);
   digitalWrite(LED,LOW);
