@@ -58,6 +58,7 @@ function draw() {
     }
   }
 }
+
 function printList(portList) {
   // create a select object:
   portSelector = createSelect();
